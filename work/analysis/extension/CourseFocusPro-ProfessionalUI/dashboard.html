@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Focus Pro</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <img class="sidebar-logo" src="icons/sidebar-logo.svg" alt="Course Focus Pro">
+        <p id="connectionLabel">Loading extension</p>
+      </div>
+      <nav class="tab-nav" aria-label="Dashboard tabs">
+        <button class="tab-button active" data-tab="focus" type="button">Focus</button>
+        <button class="tab-button" data-tab="courses" type="button">Courses</button>
+        <button class="tab-button" data-tab="analytics" type="button">Analytics</button>
+        <button class="tab-button" data-tab="daily" type="button">Daily Goals</button>
+        <button class="tab-button" data-tab="music" type="button">Music</button>
+        <button class="tab-button" data-tab="settings" type="button">Settings</button>
+        <button class="tab-button" data-tab="about" type="button">About</button>
+      </nav>
+      <section class="side-status">
+        <div><span>Today</span><strong id="sideFocus">0m</strong></div>
+        <div><span>Blocked</span><strong id="sideBlocked">0</strong></div>
+        <div><span>Water</span><strong id="sideWater">0/8</strong></div>
+      </section>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="stateEyebrow">Ready</p>
+          <h2 id="mainTitle">Start one clean study block</h2>
+        </div>
+        <div class="top-actions">
+          <span class="live-clock" id="liveClock">--:--</span>
+          <button class="water-top-button" id="waterTopBtn" type="button" aria-expanded="false" aria-controls="waterMenu"><span id="waterTopIcon" aria-hidden="true">&#128167;</span><strong id="waterTopCount">0/8</strong></button>
+        </div>
+      </header>
+
+      <section class="tab-panel active" id="tab-focus">
+        <article class="panel focus-panel clean-focus-panel">
+          <div class="panel-header focus-minimal-header">
+            <div><p class="panel-kicker">Focus Mode <button class="help-button" data-help="Start one timed session for the selected course.">?</button></p><h3 id="focusHeadline">Ready to start</h3></div>
+            <span class="status-pill" id="focusPill">Idle</span>
+          </div>
+          <div class="focus-core-grid">
+            <div class="timer-wrap">
+              <svg viewBox="0 0 160 160"><circle class="timer-track" cx="80" cy="80" r="68"></circle><circle class="timer-progress" id="timerProgress" cx="80" cy="80" r="68"></circle></svg>
+              <div class="timer-center"><strong id="timerText">00:00</strong><span id="timerCaption">Choose a course</span></div>
+            </div>
+            <div class="focus-side-stack">
+              <div class="selected-course selected-course-large" id="selectedCourseBox">
+                <div><span>Current course</span><strong id="selectedCourseTitle">No course selected</strong><p id="selectedCourseMeta">Choose a course before starting.</p><p class="focus-remaining-line hidden" id="focusRemainingText">00:00 remaining</p></div>
+                <div class="selected-course-actions"><button class="button secondary" id="focusOpenCourseBtn" type="button">Open Course</button><button class="button secondary" id="changeCourseBtn" type="button">Switch Course</button></div>
+              </div>
+              <form class="start-form focus-start-form" id="startForm">
+                <input id="courseSelect" class="hidden" type="hidden">
+                <label>Minutes<input id="durationInput" type="number" min="5" max="240" step="5" value="50"></label>
+                <button class="button primary" id="startFocusBtn" type="submit">Start Focus</button>
+                <button class="button secondary" id="pauseFocusBtn" type="button" disabled>Pause Focus</button>
+                <button class="button primary hidden" id="resumeFocusBtn" type="button">Resume Focus</button>
+                <button class="button danger hidden" id="stopFocusBtn" type="button">Stop Focus</button>
+              </form>
+              <label class="toggle-card focus-redirect-toggle"><input id="redirectEnabledInput" type="checkbox" checked><span>Redirect distracting tabs <button class="help-button" data-help="Redirect sends blocked tabs back to your current course.">?</button></span></label>
+            </div>
+          </div>
+          <div class="focus-metrics">
+            <div><span>Today study time <button class="help-button" data-help="Today study time counts the focus minutes you completed today. Studying today keeps your streak alive.">?</button></span><strong id="todayFocus">0m</strong></div>
+            <div><span>Today sessions <button class="help-button" data-help="Today sessions counts how many focus blocks you completed today.">?</button></span><strong id="todaySessions">0</strong></div>
+            <div><span>Productivity score <button class="help-button" data-help="Productivity score combines study time, completed sessions, and distractions blocked into one simple number.">?</button></span><strong id="todayScore">0</strong></div>
+            <div class="hidden"><span>Blocked</span><strong id="todayBlocks">0</strong></div>
+          </div>
+        </article>
+        <article class="panel today-insight-card">
+          <div class="panel-header"><div><p class="panel-kicker">Today's Insight <button class="help-button" data-help="Insight uses completed focus sessions only. It does not guess from manual entries.">?</button></p><h3 id="todayInsightTitle">No insight yet</h3></div></div>
+          <p id="todayInsightText">Complete a focus session to unlock an automatic study insight.</p>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="tab-music">
+        <article class="panel music-panel">
+          <div class="panel-header"><div><p class="panel-kicker">Study Music <button class="help-button" data-help="Music plays simple built-in study sounds inside this dashboard, so you do not need another app.">?</button></p><h3>Minimal focus audio</h3></div><span class="status-pill" id="musicStatus">Stopped</span></div>
+          <div class="music-layout">
+            <div class="music-categories" id="musicCategories"></div>
+            <div class="music-player">
+              <div class="music-now"><span>Now playing</span><strong id="musicTitle">Choose a sound</strong><p id="musicDescription">Relaxing loops generated inside the extension.</p></div>
+              <div class="music-controls professional-music-controls">
+                <button class="button secondary music-nav" id="musicPrevBtn" type="button">Prev</button>
+                <button class="button secondary imported-seek music-seek" id="musicBackBtn" type="button">-10s</button>
+                <button class="button primary music-play-control" id="musicPlayBtn" type="button">Play</button>
+                <button class="button secondary music-pause-control" id="musicPauseBtn" type="button">Pause</button>
+                <button class="button secondary music-nav" id="musicNextBtn" type="button">Next</button>
+                <button class="button secondary imported-seek music-seek" id="musicForwardBtn" type="button">+10s</button>
+                <button class="button secondary music-shuffle-control" id="musicShuffleBtn" type="button">Shuffle</button>
+              </div>
+              <label class="volume-control">Volume <strong id="musicVolumeLabel">35%</strong><input id="musicVolumeInput" type="range" min="0" max="100" value="35"></label>
+              <label class="toggle-card loop-toggle"><input id="musicLoopInput" type="checkbox" checked><span>Loop current sound</span></label>
+              <div class="my-music-panel">
+                <div class="panel-header compact-header"><div><p class="panel-kicker">My Music <button class="help-button" data-help="Import local MP3, WAV, or OGG files. After a browser restart, choose Import again so Chrome can reconnect the local file safely.">?</button></p><h4>Local files only</h4></div><label class="button secondary import-button">Import<input class="hidden" id="musicImportInput" type="file" accept="audio/mpeg,audio/wav,audio/ogg,.mp3,.wav,.ogg" multiple></label></div>
+                <div class="my-music-list" id="myMusicList"></div>
+                <p class="form-status">Imported files stay local. After restart, re-import them to reconnect playback.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="tab-courses">
+        <section class="section-grid">
+          <article class="panel">
+            <div class="panel-header"><div><p class="panel-kicker">Course Links <button class="help-button" data-help="Add Course accepts YouTube playlists, online courses, documentation, coding websites, or any educational website link.">?</button></p><h3>Add Course</h3></div></div>
+            <form class="course-form" id="courseForm">
+              <label>Name<input id="courseTitleInput" type="text" placeholder="Physics lecture"></label>
+              <label>Subject<select id="courseSubjectInput"></select></label>
+              <label>Library<select id="courseLibraryInput"></select></label>
+              <label class="wide-field">Link<input id="courseUrlInput" type="url" placeholder="https://..."></label>
+              <button class="button primary" type="submit">Add Course</button>
+            </form>
+          </article>
+          <article class="panel">
+            <div class="panel-header"><div><p class="panel-kicker">Libraries</p><h3>Organize Courses</h3></div></div>
+            <form class="inline-form" id="libraryForm"><input id="libraryNameInput" type="text" placeholder="Create library, e.g. Physics Wallah"><button class="button secondary" type="submit">Create</button></form>
+            <p class="form-status">Create your own folders for courses. Study profiles only control subject choices.</p>
+          </article>
+        </section>
+        <article class="panel">
+          <div class="panel-header"><div><p class="panel-kicker">Learning Dashboard</p><h3>Continue Learning</h3></div></div>
+          <div class="course-overview-grid" id="courseOverview"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-header"><div><p class="panel-kicker">All Courses</p><h3>Library Study Links</h3></div><span class="list-count" id="courseCount">0 courses</span></div>
+          <div class="course-libraries-list" id="courseLibrariesList"></div>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="tab-analytics">
+        <div class="widget-grid">
+          <article class="stat-widget"><span>Current streak <button class="help-button" data-help="Current streak is the number of days in a row you have studied without missing a day.">?</button></span><strong id="currentStreak">0 days</strong></article>
+          <article class="stat-widget"><span>Weekly average <button class="help-button" data-help="Weekly average shows your average study time per week across recent tracked sessions.">?</button></span><strong id="weeklyHours">0h</strong></article>
+          <article class="stat-widget"><span>Daily average <button class="help-button" data-help="Daily average is your average focused study time per day over the last 7 days.">?</button></span><strong id="averageStudy">0h</strong></article>
+          <article class="stat-widget"><span>Goal progress <button class="help-button" data-help="Goal progress combines study time, sessions, water, and streak progress into one daily percentage.">?</button></span><strong id="goalProgress">0%</strong></article>
+          <article class="stat-widget"><span>Today vs average <button class="help-button" data-help="Today vs Average compares today's completed focus time with your 7-day daily average.">?</button></span><strong id="dailyComparison">0h</strong></article>
+        </div>
+        <article class="panel xp-panel"><div><p class="panel-kicker">XP & Rank <button class="help-button" data-help-key="xp-rank" data-help="XP is earned from focus sessions. Levels unlock rank names as you progress.">?</button></p><h3 id="rankTitle">Beginner</h3><p id="rankMeta">0 XP earned</p></div><div class="xp-progress"><span id="xpProgressFill"></span></div><div class="badge-row" id="badgeRow"></div></article>
+        <div class="chart-grid">
+          <article class="chart-card"><div class="chart-title"><strong>Daily study hours <button class="help-button" data-help="Each bar shows study hours for one day.">?</button></strong><span id="dailyChartMeta">Last 7 days</span></div><canvas id="dailyChart"></canvas></article>
+          <article class="chart-card"><div class="chart-title"><strong>Weekly study hours</strong><span id="weeklyChartMeta">Last 6 weeks</span></div><canvas id="weeklyChart"></canvas></article>
+          <article class="chart-card"><div class="chart-title"><strong>Subject hours</strong><span id="subjectChartMeta">Hours by subject</span></div><canvas id="subjectChart"></canvas></article>
+        </div>
+        
+        <article class="panel"><div class="panel-header"><div><p class="panel-kicker">History</p><h3>Recent Focus Sessions</h3></div></div><div class="history-list" id="focusHistoryList"></div></article>
+      </section>
+
+      <section class="tab-panel" id="tab-daily">
+        <article class="panel">
+          <div class="panel-header"><div><p class="panel-kicker">System Goals <button class="help-button" data-help="System Goals rotate each day and complete only from verified study sessions, hydration, or distraction-free focus time.">?</button></p><h3>Automatically Tracked</h3></div></div>
+          <div class="system-goals-grid" id="systemGoalsList"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-header"><div><p class="panel-kicker">Personal Goals <button class="help-button" data-help="Personal Goals are custom reminders you create yourself. They are for planning only and never give XP.">?</button></p><h3>Your Custom Study List</h3></div><button class="button secondary" id="resetTasksBtn" type="button">Clear Goals</button></div>
+          <form class="mission-form personal-task-form" id="missionForm">
+            <input id="missionTitleInput" type="text" placeholder="Task title">
+            <input id="missionAreaInput" type="text" placeholder="Area">
+            <input id="missionMinutesInput" type="number" min="0" max="480" step="5" placeholder="Min">
+            <input id="missionNoteInput" type="text" placeholder="Short note">
+            <button class="button primary" type="submit">Add Task</button>
+          </form>
+          <div class="mission-progress"><div><strong id="missionProgressText">0%</strong><span>personal goals done</span></div><div class="mission-progress-bar"><span id="missionProgressFill"></span></div></div>
+          <div class="personal-task-list" id="personalTaskList"></div>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="tab-settings">
+        <section class="settings-grid">
+          <article class="panel settings-card welcome-card">
+            <div class="panel-header"><div><p class="panel-kicker">Welcome</p><h3>First-Time Guide</h3></div></div>
+            <p class="form-status">Replay the welcome and setup guide whenever you want to review the basics.</p>
+            <div class="settings-mini-summary">
+              <div><span>Best start</span><strong>Add one course, then run one focus session.</strong></div>
+              <div><span>Clean setup</span><strong>Keep blocked and supported sites updated.</strong></div>
+            </div>
+            <button class="button secondary" id="showOnboardingBtn" type="button">Show Welcome Again</button>
+          </article>
+          <article class="panel settings-card">
+            <div class="panel-header"><div><p class="panel-kicker">Focus Defaults <button class="help-button" data-help="Focus defaults control how new study sessions start.">?</button></p><h3>Session Behavior</h3></div></div>
+            <form class="settings-form" id="settingsForm">
+              <label>Default focus minutes<input id="settingsFocusMinutesInput" type="number" min="5" max="240" step="5" value="50"></label>
+              <label>Study profile<select id="studyProfileSelect"></select></label>
+              <div class="soft-divider"></div>
+              <label>Theme<select id="themeModeSelect"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="midnight">Midnight Blue</option><option value="amoled">AMOLED Black</option><option value="forest">Forest Green</option><option value="purple">Purple</option><option value="beige">Warm Beige</option><option value="slate">Slate Gray</option><option value="teal">Calm Teal</option><option value="rose">Soft Rose</option></select></label>
+              <label>Water goal<input id="waterGoalInput" type="number" min="1" max="20" value="8"></label>
+              <label>Remind every minutes<input id="waterIntervalInput" type="number" min="1" max="240" value="60"></label>
+              <label class="toggle-card"><input id="soundEnabledInput" type="checkbox"><span>Master sound toggle</span></label>
+              <label>Sound volume <strong id="soundVolumeLabel">35%</strong><input id="soundVolumeInput" type="range" min="0" max="100" value="35"></label>
+              <button class="button primary" type="submit">Save Settings</button>
+            </form>
+          </article>
+          <article class="panel settings-card">
+            <div class="panel-header"><div><p class="panel-kicker">Blocked Sites <button class="help-button" data-help="Blocked sites are distractions Course Focus Pro can redirect during Focus Mode or outside focus when enabled.">?</button></p><h3>Distraction List</h3></div></div>
+            <form class="inline-form" id="blockedForm"><input id="blockedInput" type="text" placeholder="instagram.com"><button class="button secondary" type="submit">Block</button></form>
+            <div class="chip-cloud" id="blockedList"></div>
+            <label class="toggle-card blocking-toggle"><input id="outsideBlockInput" type="checkbox" checked><span>Block blocked sites outside focus <button class="help-button" data-help="When this is on, blocked websites are protected even when Focus Mode is not running. Supported sites stay allowed.">?</button></span></label>
+            <p class="settings-pro-note">Supported sites stay allowed during Focus Mode. Blocked sites redirect only when protection is active.</p>
+          </article>
+          <article class="panel settings-card">
+            <div class="panel-header"><div><p class="panel-kicker">Supported Sites <button class="help-button" data-help="Supported sites are study tools that should stay allowed during Focus Mode.">?</button></p><h3>Always Allowed</h3></div></div>
+            <form class="inline-form" id="allowedForm"><input id="allowedInput" type="text" placeholder="docs.google.com"><button class="button secondary" type="submit">Support</button></form>
+            <div class="chip-cloud" id="allowedList"></div>
+          </article>
+          <article class="panel settings-card">
+            <div class="panel-header"><div><p class="panel-kicker">Data</p><h3>Backup & Reset</h3></div></div>
+            <div class="backup-actions"><button class="button secondary" id="exportJsonBtn" type="button">Export JSON</button><button class="button secondary" id="restoreBackupBtn" type="button">Restore JSON</button><input class="hidden" id="restoreBackupInput" type="file" accept="application/json,.json"></div>
+            <p class="form-status" id="backupStatus">Backup tools are ready.</p>
+            <div class="soft-divider"></div>
+            <div class="danger-zone">
+              <h4>Reset tools</h4>
+              <p>Use these only when you want a clean analytics or app reset.</p>
+              <div class="backup-actions"><button class="button danger" id="resetAnalyticsBtn" type="button">Reset Analytics</button><button class="button danger" id="clearAllDataBtn" type="button">Clear All Data</button></div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="tab-panel" id="tab-about">
+        <section class="about-grid settings-about">
+          <article class="panel about-hero">
+            <img class="brand-icon about-logo" src="icons/icon.svg" alt="" aria-hidden="true">
+            <div><p class="panel-kicker">About</p><h3>Course Focus Pro</h3><p>A focused Chrome extension for students who want fewer distractions, clearer study routines, helpful analytics, music, hydration reminders, and steady progress without clutter.</p></div>
+            <img class="brand-banner" src="icons/sidebar-logo.svg" alt="Course Focus Pro logo">
+          </article>
+          <article class="panel"><div class="panel-header"><div><p class="panel-kicker">Purpose</p><h3>Why We Built Course Focus Pro</h3></div></div><p class="about-copy">Course Focus Pro was built to help students stay consistent, reduce distracting detours, and turn daily effort into visible progress.</p></article>
+          <article class="panel"><div class="panel-header"><div><p class="panel-kicker">Privacy</p><h3>Privacy Policy</h3></div></div><p class="about-copy">Your study data, courses, missions, music metadata, and settings are stored locally in your browser. Local music files are not uploaded.</p></article>
+          <article class="panel"><div class="panel-header"><div><p class="panel-kicker">Permissions</p><h3>Why Permissions Are Required</h3></div></div><div class="permission-list"><div><strong>Storage</strong><span>Saves courses, settings, analytics, missions, and theme preferences.</span></div><div><strong>Tabs</strong><span>Checks distracting tabs and opens your selected course when requested.</span></div><div><strong>Alarms</strong><span>Runs focus completion and hydration reminder timing reliably.</span></div><div><strong>Notifications</strong><span>Shows focus and hydration reminders.</span></div></div></article>
+          <article class="panel"><div class="panel-header"><div><p class="panel-kicker">Contact</p><h3>Contact Developer</h3></div></div><p class="about-copy">Email: <a id="developerEmail" href="mailto:coursefocuspro@gmail.com">coursefocuspro@gmail.com</a></p></article>
+          <article class="panel"><div class="panel-header"><div><p class="panel-kicker">Suggestions</p><h3>Improvement & Suggestion</h3></div></div><p class="about-copy">Send a short note with what happened, what you expected, and a screenshot if possible.</p></article>
+        </section>
+      </section>
+    </section>
+  </main>
+  <div class="water-menu hidden" id="waterMenu" role="dialog" aria-label="Water progress">
+    <div class="panel-header compact-header"><div><p class="panel-kicker">Hydration</p><h3>Water Progress</h3></div><button class="icon-button" id="waterMenuCloseBtn" type="button">x</button></div>
+    <label class="switch-row"><span>Reminders</span><label class="switch"><input id="waterEnabledInput" type="checkbox"><span></span></label></label>
+    <div class="water-progress-shell"><div class="water-progress-fill" id="waterProgressFill"></div><div class="water-progress-copy"><strong id="waterProgressText">0/8</strong><span>glasses today</span></div></div>
+    <div class="water-quick-actions"><button class="button primary" id="drinkWaterBtn" type="button">+1 Glass</button><button class="button secondary" id="undoWaterBtn" type="button">Undo</button></div>
+    <div class="water-grid" id="waterGrid"></div>
+    <p class="celebration hidden" id="waterCelebration">Daily water goal complete. Nice work.</p>
+    <p class="form-status" id="nextWaterText">Next reminder: after 1 hour</p>
+  </div>
+  <div class="modal-backdrop hidden" id="courseModal" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+    <div class="modal-card course-modal-card">
+      <div class="panel-header"><div><p class="panel-kicker">Switch Course</p><h3 id="courseModalTitle">Choose your focus course</h3></div><button class="icon-button" id="courseModalClose" type="button">x</button></div>
+      <div class="course-switch-list" id="courseSwitchList"></div>
+    </div>
+  </div>
+  <div class="onboarding-shell hidden" id="onboardingOverlay" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <div class="onboarding-card-v2" id="onboardingCard">
+      <div class="onboarding-step active" data-step="welcome">
+        <img class="brand-icon onboarding-logo" src="icons/icon.svg" alt="" aria-hidden="true">
+        <p class="panel-kicker">Welcome to Course Focus Pro</p>
+        <h2 id="onboardingTitle">Every expert started as a beginner.</h2>
+        <button class="button primary" id="onboardingGetStartedBtn" type="button">Get Started</button>
+      </div>
+      <div class="onboarding-step" data-step="name">
+        <p class="panel-kicker">Profile</p>
+        <h2>What should we call you?</h2>
+        <label>Name<input id="onboardingNameInput" type="text" placeholder="Your name" autocomplete="name"></label>
+        <button class="button primary" id="onboardingNameNextBtn" type="button">Continue</button>
+      </div>
+      <div class="onboarding-step" data-step="journey">
+        <p class="panel-kicker">Journey</p>
+        <h2>Your journey starts today.</h2>
+        <p>This isn't about studying harder&mdash;it's about studying consistently.</p>
+        <p>Would you like to continue your journey from here?</p>
+        <button class="button primary" id="journeyContinueBtn" type="button">Continue</button>
+      </div>
+      <div class="onboarding-step" data-step="setup">
+        <p class="panel-kicker">Last Setup</p>
+        <h2>Set your study defaults</h2>
+        <div class="onboarding-setup-grid">
+          <label>Study profile<select id="onboardingStudyProfileSelect"></select></label>
+          <label>Focus time<input id="onboardingFocusMinutesInput" type="number" min="5" max="240" step="5" value="50"></label>
+          <label>Hydration goal<input id="onboardingWaterGoalInput" type="number" min="1" max="20" value="8"></label>
+          <label>Theme<select id="onboardingThemeSelect"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="midnight">Midnight Blue</option><option value="amoled">AMOLED Black</option><option value="forest">Forest Green</option><option value="purple">Purple</option><option value="beige">Warm Beige</option><option value="slate">Slate Gray</option><option value="teal">Calm Teal</option><option value="rose">Soft Rose</option></select></label>
+        </div>
+        <button class="button primary" id="onboardingFinishSetupBtn" type="button">Finish Setup</button>
+      </div>
+      <div class="onboarding-step" data-step="complete">
+        <img class="brand-icon onboarding-logo" src="icons/icon.svg" alt="" aria-hidden="true">
+        <p class="panel-kicker">Ready</p>
+        <h2>Congratulations</h2>
+        <p>You are ready to begin your first focus study session.</p>
+        <button class="button primary" id="finishTutorialBtn" type="button">Begin Studying</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop hidden" id="completionModal" role="dialog" aria-modal="true" aria-labelledby="completionTitle">
+    <div class="modal-card completion-card">
+      <img class="brand-icon modal-brand-icon" src="icons/icon.svg" alt="" aria-hidden="true">
+      <p class="panel-kicker">Focus Complete</p>
+      <h2 id="completionTitle">Session Complete</h2>
+      <div class="completion-summary">
+        <div><span>Subject</span><strong id="completionSubject">Physics</strong></div>
+        <div><span>Duration</span><strong id="completionDuration">50m</strong></div>
+        <div><span>XP Earned</span><strong id="completionXp">+25 XP</strong></div>
+        <div><span>Today's Total</span><strong id="completionToday">0m</strong></div>
+        <div><span>Current Streak</span><strong id="completionStreak">0 days</strong></div>
+      </div>
+      <div class="completion-actions">
+        <button class="button primary" id="completionStartBtn" type="button">Start Another Session</button>
+        <button class="button secondary" id="completionBreakBtn" type="button">Take a Break</button>
+        <button class="button secondary" id="completionCloseBtn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop hidden" id="welcomeBackModal" role="dialog" aria-modal="true" aria-labelledby="welcomeBackTitle">
+    <div class="modal-card welcome-back-card">
+      <img class="brand-icon modal-brand-icon" src="icons/icon.svg" alt="" aria-hidden="true">
+      <p class="panel-kicker">Focus Recovery</p>
+      <h2 id="welcomeBackTitle">Welcome Back</h2>
+      <p>Your previous study session is still active.</p>
+      <div class="welcome-back-time"><span>Remaining Time</span><strong id="welcomeBackTime">0m</strong></div>
+      <div class="completion-actions">
+        <button class="button primary" id="welcomeResumeBtn" type="button">Resume Focus</button>
+        <button class="button danger" id="welcomeEndBtn" type="button">End Session</button>
+        <button class="button secondary" id="welcomeDismissBtn" type="button">Dismiss</button>
+      </div>
+    </div>
+  </div>
+  <div class="water-reminder-popup hidden" id="waterReminderPopup"><strong>Hydration reminder</strong><span>Drink one glass of water, then log it here.</span><button class="button primary" id="waterReminderLogBtn" type="button">Log Water</button><button class="icon-button" id="waterReminderCloseBtn" type="button">x</button></div>
+<div class="undo-bar hidden" id="undoBar"><span id="undoText">Action complete.</span><button class="button secondary" id="undoBtn" type="button">Undo</button></div>
+  <div class="help-popover hidden" id="helpPopover" role="dialog"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="chart.umd.min.js?v=1.8.5"></script>
+  <script type="module" src="dashboard.js?v=1.8.5"></script>
+</body>
+</html>

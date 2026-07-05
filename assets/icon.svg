@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Course Focus Pro</title>
+  <desc id="desc">Course Focus Pro extension icon with a book, graduation cap, focus arc, and completion check.</desc>
+  <defs>
+    <linearGradient id="tile" x1="18" y1="12" x2="112" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111d31"/>
+      <stop offset="1" stop-color="#06101e"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="22" y1="82" x2="106" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2478ff"/>
+      <stop offset=".48" stop-color="#27c4f3"/>
+      <stop offset="1" stop-color="#15cf78"/>
+    </linearGradient>
+    <linearGradient id="checkBg" x1="88" y1="82" x2="119" y2="115" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18d68a"/>
+      <stop offset="1" stop-color="#0fa968"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-24%" width="148%" height="148%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000814" flood-opacity=".45"/>
+    </filter>
+    <filter id="soft" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000814" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="27" fill="url(#tile)"/>
+  <rect x="1.5" y="1.5" width="125" height="125" rx="26" fill="none" stroke="#37506f" stroke-opacity=".55"/>
+  <path d="M16 80a50 50 0 1 1 96 0" fill="none" stroke="url(#arc)" stroke-width="11.5" stroke-linecap="round" filter="url(#soft)"/>
+  <g filter="url(#shadow)">
+    <path d="M20 78c14.3-4.6 28.5-2.6 42.5 12.4V54.3C49 45 33.2 43.5 20 48.3V78Z" fill="#ffffff"/>
+    <path d="M108 78c-14.3-4.6-28.5-2.6-42.5 12.4V54.3C79 45 94.8 43.5 108 48.3V78Z" fill="#ffffff"/>
+    <path d="M20 78v11.3c13.9-4 28.1-1.6 42.5 10.1v-9C48.5 75.4 34.3 73.4 20 78Z" fill="#f8fafc"/>
+    <path d="M108 78v11.3c-13.9-4-28.1-1.6-42.5 10.1v-9C79.5 75.4 93.7 73.4 108 78Z" fill="#f8fafc"/>
+    <path d="M64 54.3v45.1" stroke="#d8e4f0" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="M39 36 65 25l27 11-27 12-26-12Z" fill="#ffffff"/>
+    <path d="M48 42.6v10.8c10.4 7.8 23 7.8 33.5 0V42.6L65 49.8l-17-7.2Z" fill="#ffffff"/>
+    <path d="M92 36.8v17.2" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M92 55c2.3 2.9 2.5 7 .8 10.4h-5.9c-1.7-3.4-1.5-7.5.8-10.4H92Z" fill="#ffffff"/>
+  </g>
+  <circle cx="100" cy="99" r="25" fill="url(#checkBg)" stroke="#06241a" stroke-opacity=".38" stroke-width="2" filter="url(#shadow)"/>
+  <path d="m88 98.6 7.8 7.8 16.8-17.4" fill="none" stroke="#ffffff" stroke-width="7.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

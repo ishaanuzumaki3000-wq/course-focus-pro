@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-labelledby="title desc">
+  <title id="title">Course Focus Pro banner</title>
+  <desc id="desc">A professional futuristic banner for a student productivity extension.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0f172a"/>
+      <stop offset=".55" stop-color="#14213d"/>
+      <stop offset="1" stop-color="#0b2f3a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="80" y1="40" x2="680" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset=".55" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.15 0 0 0 0 0.78 0 0 0 0 0.95 0 0 0 .45 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="760" height="220" rx="28" fill="url(#bg)"/>
+  <path d="M38 172h684" stroke="#7dd3fc" stroke-opacity=".18"/>
+  <path d="M38 128h684" stroke="#7dd3fc" stroke-opacity=".12"/>
+  <path d="M38 84h684" stroke="#7dd3fc" stroke-opacity=".12"/>
+  <path d="M540 30l102 0 54 78-54 82H540l-54-82 54-78Z" fill="#0f172a" stroke="url(#accent)" stroke-width="2" opacity=".9"/>
+  <circle cx="594" cy="110" r="46" fill="none" stroke="url(#accent)" stroke-width="8" filter="url(#glow)"/>
+  <path d="M573 132V88c0-12 9-21 23-21h42v18h-39c-5 0-8 3-8 8v34c0 5 3 8 8 8h39v18h-42c-14 0-23-9-23-21Z" fill="#e0f2fe"/>
+  <path d="M617 110h37v16h-37z" fill="#2dd4bf"/>
+  <text x="58" y="86" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="800">Course Focus Pro</text>
+  <text x="60" y="124" fill="#bae6fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">FOCUS SYSTEM FOR STUDENTS</text>
+  <text x="60" y="156" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">Study consistently. Block distractions. Track progress.</text>
+  <path d="M60 181h230" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+</svg>

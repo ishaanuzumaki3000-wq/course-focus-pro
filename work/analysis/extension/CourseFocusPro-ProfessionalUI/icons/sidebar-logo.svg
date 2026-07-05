@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 180" role="img" aria-labelledby="title desc">
+  <title id="title">Course Focus Pro sidebar logo</title>
+  <desc id="desc">Course Focus Pro logo lockup with icon, wordmark, and tagline.</desc>
+  <defs>
+    <linearGradient id="tile" x1="12" y1="18" x2="148" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111d31"/>
+      <stop offset="1" stop-color="#06101e"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="26" y1="110" x2="136" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2478ff"/>
+      <stop offset=".48" stop-color="#27c4f3"/>
+      <stop offset="1" stop-color="#15cf78"/>
+    </linearGradient>
+    <linearGradient id="focusText" x1="245" y1="100" x2="650" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2478ff"/>
+      <stop offset=".48" stop-color="#2478ff"/>
+      <stop offset="1" stop-color="#15cf78"/>
+    </linearGradient>
+    <linearGradient id="checkBg" x1="115" y1="105" x2="158" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18d68a"/>
+      <stop offset="1" stop-color="#0fa968"/>
+    </linearGradient>
+    <filter id="shadow" x="-24%" y="-24%" width="148%" height="148%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000814" flood-opacity=".42"/>
+    </filter>
+  </defs>
+  <g>
+    <rect x="12" y="16" width="148" height="148" rx="34" fill="url(#tile)"/>
+    <rect x="14" y="18" width="144" height="144" rx="32" fill="none" stroke="#37506f" stroke-opacity=".55"/>
+    <path d="M38 105a53 53 0 1 1 102 0" fill="none" stroke="url(#arc)" stroke-width="12" stroke-linecap="round"/>
+    <g filter="url(#shadow)">
+      <path d="M43 104c14.8-4.8 29.6-2.8 43.7 12.7V78c-13.7-9.8-29.8-11.2-43.7-6.3V104Z" fill="#fff"/>
+      <path d="M130.5 104c-14.8-4.8-29.6-2.8-43.7 12.7V78c13.7-9.8 29.8-11.2 43.7-6.3V104Z" fill="#fff"/>
+      <path d="M43 104v11.6c14.5-4.3 29.2-1.8 43.7 10.2v-9.1C72.6 101.2 57.8 99.2 43 104Z" fill="#f8fafc"/>
+      <path d="M130.5 104v11.6c-14.5-4.3-29.2-1.8-43.7 10.2v-9.1c14.1-15.5 28.9-17.5 43.7-12.7Z" fill="#f8fafc"/>
+      <path d="M86.8 78v47.8" stroke="#d8e4f0" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M62 55.5 88.5 44l28 11.5-28 12.2L62 55.5Z" fill="#fff"/>
+      <path d="M70.8 62.5v11.2c10.8 8.1 23.8 8.1 34.6 0V62.5L88.5 70 70.8 62.5Z" fill="#fff"/>
+      <path d="M117 56.3v17.8" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M117 75c2.5 3 2.7 7.4.8 10.9h-6.1c-1.8-3.5-1.6-7.9.9-10.9h4.4Z" fill="#fff"/>
+    </g>
+    <circle cx="127" cy="127" r="27" fill="url(#checkBg)" stroke="#06241a" stroke-opacity=".38" stroke-width="2" filter="url(#shadow)"/>
+    <path d="m114.7 126.5 8 8.2 17.9-18.4" fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M198 36v108" stroke="#d5dfed" stroke-opacity=".28" stroke-width="2"/>
+  <text x="238" y="76" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="50" font-weight="900" letter-spacing="2">COURSE</text>
+  <text x="238" y="128" fill="url(#focusText)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="50" font-weight="900" letter-spacing="2">FOCUS PRO</text>
+  <text x="240" y="158" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Stay Focused. Study Better.</text>
+</svg>

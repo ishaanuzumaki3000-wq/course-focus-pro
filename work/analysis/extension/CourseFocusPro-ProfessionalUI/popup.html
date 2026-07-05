@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Focus Pro</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup-body">
+  <section class="popup-shell">
+    <article class="popup-card popup-welcome hidden" id="popupWelcomeBack">
+      <img class="brand-icon popup-welcome-icon" src="icons/icon.svg" alt="" aria-hidden="true">
+      <p class="panel-kicker">Focus Recovery</p>
+      <h2 class="popup-title">Welcome Back</h2>
+      <p class="popup-muted">Your previous study session is still active.</p>
+      <div class="popup-focus-timer" id="popupWelcomeTime">0m remaining</div>
+      <div class="popup-actions">
+        <button class="button primary" id="popupWelcomeResumeBtn" type="button">Resume Focus</button>
+        <button class="button danger" id="popupWelcomeEndBtn" type="button">End Session</button>
+        <button class="button secondary" id="popupWelcomeDismissBtn" type="button">Dismiss</button>
+      </div>
+    </article>
+    <article class="popup-card popup-hero-card">
+      <div class="popup-brand-row">
+        <img class="brand-icon popup-brand-mark" src="icons/icon.svg" alt="" aria-hidden="true">
+        <div>
+          <h1 class="popup-title">Course Focus Pro</h1>
+          <p class="popup-muted" id="popupStatus">Loading...</p>
+        </div>
+      </div>
+      <div class="popup-actions popup-main-actions">
+        <button class="button primary" id="popupStartBtn" type="button">Start Focus</button>
+        <button class="button secondary" id="popupPauseBtn" type="button" disabled>Pause Focus</button>
+        <button class="button primary hidden" id="popupResumeBtn" type="button">Resume</button>
+        <button class="button danger hidden" id="popupStopBtn" type="button">Stop</button>
+        <button class="button secondary" id="popupDashboardBtn" type="button">Dashboard</button>
+      </div>
+    </article>
+    <article class="popup-card">
+      <p class="panel-kicker">Current course</p>
+      <h2 class="popup-title" id="popupCourse">No course yet</h2>
+      <p class="popup-focus-timer" id="popupTimer">Add a course in the dashboard.</p>
+      <div class="popup-actions">
+        <button class="button secondary" id="popupOpenBtn" type="button">Open Course</button>
+      </div>
+    </article>
+    <article class="popup-card">
+      <p class="panel-kicker">Today</p>
+      <div class="popup-mini-grid">
+        <div><span>Study</span><strong id="popupFocus">0m</strong></div>
+        <div><span>Blocked</span><strong id="popupBlocked">0</strong></div>
+        <div><span>Water</span><strong id="popupWater">0/8</strong></div>
+        <div><span>Score</span><strong id="popupScore">0</strong></div>
+      </div>
+      <div class="popup-actions popup-quick-actions"><button class="button primary" id="popupWaterBtn" type="button">Log Water</button><button class="button secondary" id="popupRulesBtn" type="button">Settings</button></div>
+    </article>
+    <div class="popup-secondary-grid">
+      <article class="popup-card popup-compact-card">
+        <p class="panel-kicker">Music</p>
+        <p class="popup-muted" id="popupMusicStatus">Control dashboard music</p>
+        <div class="popup-actions popup-music-actions"><button class="button primary" id="popupMusicPlayBtn" type="button">Play</button><button class="button secondary" id="popupMusicPauseBtn" type="button">Pause</button></div>
+      </article>
+      <article class="popup-card popup-compact-card">
+        <p class="panel-kicker">Insight</p>
+        <h2 class="popup-title" id="popupAssistant">Ready</h2>
+        <p class="popup-muted" id="popupAssistantTip">Pick one course and start clean.</p>
+      </article>
+    </div>
+  </section>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

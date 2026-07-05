@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Course Focus Pro transforms YouTube into a clean learning platform with focus sessions, smart blocking, analytics, course libraries, hydration reminders and study music."
+    />
+    <meta name="theme-color" content="#050608" />
+    <title>Course Focus Pro - Study Without Distractions</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Course Focus Pro home">
+          <img src="assets/logo.png" alt="" width="40" height="40" />
+          <span>Course Focus Pro</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-menu"
+          aria-label="Open navigation menu"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-menu" id="primary-menu" data-nav-menu>
+          <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQ</a>
+          <a class="button button-small button-primary" href="#waitlist">Join Waitlist</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-blue" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-green" aria-hidden="true"></div>
+        <div class="particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="container hero-content">
+          <div class="hero-copy reveal">
+            <span class="badge">🚀 Public Beta Coming Soon</span>
+            <h1 id="hero-title">Study Without Distractions.</h1>
+            <p>
+              Transform YouTube into the ultimate learning platform with smart focus sessions,
+              distraction blocking, analytics, course libraries, hydration reminders and study music.
+            </p>
+            <div class="hero-actions" aria-label="Hero actions">
+              <a class="button button-primary" href="#waitlist">Join Waitlist</a>
+              <a class="button button-secondary" href="#screenshots">Watch Demo</a>
+            </div>
+          </div>
+
+          <div class="hero-orbit reveal" aria-hidden="true">
+            <div class="orbit-card orbit-card-main">
+              <img src="assets/logo.png" alt="" width="96" height="96" />
+              <span>Focus mode ready</span>
+            </div>
+            <div class="orbit-pill orbit-pill-a">0 distractions</div>
+            <div class="orbit-pill orbit-pill-b">5m clean block</div>
+            <div class="orbit-pill orbit-pill-c">8/8 water</div>
+          </div>
+
+          <a class="scroll-indicator" href="#screenshots" aria-label="Scroll to product preview">
+            <span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section product-preview" id="screenshots" aria-labelledby="preview-title">
+        <div class="container">
+          <div class="section-kicker reveal">Product Preview</div>
+          <div class="section-heading reveal">
+            <h2 id="preview-title">A focused study desk, inside your browser.</h2>
+            <p>
+              Every surface is built around one job: helping students start, protect and finish one
+              clean study block at a time.
+            </p>
+          </div>
+
+          <div class="macbook reveal">
+            <div class="macbook-topbar" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="macbook-screen" id="preview-frame" aria-live="polite">
+              <img
+                src="assets/dashboard.png"
+                alt="Course Focus Pro dashboard screenshot"
+                width="1920"
+                height="943"
+                fetchpriority="high"
+                data-preview-image
+              />
+            </div>
+            <div class="macbook-base" aria-hidden="true"></div>
+          </div>
+
+          <div class="preview-tabs reveal" role="tablist" aria-label="Screenshot selector">
+            <button
+              class="preview-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="preview-frame"
+              data-preview-src="assets/dashboard.png"
+              data-preview-alt="Course Focus Pro dashboard screenshot"
+            >
+              <img src="assets/dashboard.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Dashboard</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/courses.png"
+              data-preview-alt="Course Focus Pro course library screenshot"
+            >
+              <img src="assets/courses.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Courses</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/music.png"
+              data-preview-alt="Course Focus Pro music controls screenshot"
+            >
+              <img src="assets/music.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Music</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/analytics.png"
+              data-preview-alt="Course Focus Pro analytics and hydration screenshot"
+            >
+              <img src="assets/analytics.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Analytics</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/settings.png"
+              data-preview-alt="Course Focus Pro settings screenshot"
+            >
+              <img src="assets/settings.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Settings</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/popup.png"
+              data-preview-alt="Course Focus Pro Chrome extension popup screenshot"
+            >
+              <img src="assets/popup.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Popup</span>
+            </button>
+            <button
+              class="preview-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="preview-frame"
+              data-preview-src="assets/blockscreen.png"
+              data-preview-alt="Course Focus Pro distraction blocking screen screenshot"
+            >
+              <img src="assets/blockscreen.png" alt="" width="160" height="80" loading="lazy" />
+              <span>Block Screen</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section features" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-kicker reveal">Features</div>
+          <div class="section-heading reveal">
+            <h2 id="features-title">Everything a serious learner needs. Nothing noisy.</h2>
+            <p>
+              Course Focus Pro combines a distraction blocker, study dashboard and learning routine
+              system into one quiet Chrome extension.
+            </p>
+          </div>
+
+          <article class="feature-row reveal">
+            <div class="feature-copy">
+              <span>Focus Sessions</span>
+              <h3>Start one clean study block.</h3>
+              <p>
+                Pick a course, set the minutes and enter a protected focus window that keeps
+                distracting tabs away while your study timer runs.
+              </p>
+            </div>
+            <figure class="feature-media">
+              <img src="assets/dashboard.png" alt="Focus session dashboard" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row feature-row-reverse reveal">
+            <div class="feature-copy">
+              <span>Course Library</span>
+              <h3>Turn YouTube links into a learning library.</h3>
+              <p>
+                Save videos by subject, organize libraries and jump back into your current course
+                without digging through watch history.
+              </p>
+            </div>
+            <figure class="feature-media">
+              <img src="assets/courses.png" alt="Course library screen" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row reveal">
+            <div class="feature-copy">
+              <span>Analytics</span>
+              <h3>Make progress visible.</h3>
+              <p>
+                Track completed sessions, daily time, blocked distractions and consistency so your
+                effort becomes measurable instead of vague.
+              </p>
+            </div>
+            <figure class="feature-media">
+              <img src="assets/dashboard.png" alt="Study analytics cards" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row feature-row-reverse reveal">
+            <div class="feature-copy">
+              <span>Hydration</span>
+              <h3>Build better study rhythm.</h3>
+              <p>
+                Gentle water reminders sit inside the same workflow, helping long study sessions
+                stay sustainable without becoming another app to manage.
+              </p>
+            </div>
+            <figure class="feature-media feature-media-compact">
+              <img src="assets/analytics.png" alt="Hydration progress modal" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row reveal">
+            <div class="feature-copy">
+              <span>Music</span>
+              <h3>Minimal focus audio, right where you study.</h3>
+              <p>
+                Choose lo-fi, piano, brown noise and calm ambience with local audio controls designed
+                to support concentration, not steal attention.
+              </p>
+            </div>
+            <figure class="feature-media">
+              <img src="assets/music.png" alt="Focus music controls" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row feature-row-reverse reveal">
+            <div class="feature-copy">
+              <span>Website Blocking</span>
+              <h3>Redirect distractions before they win.</h3>
+              <p>
+                When a blocked site appears, Course Focus Pro gives students a calm path back to the
+                current course instead of a shame screen.
+              </p>
+            </div>
+            <figure class="feature-media feature-media-compact">
+              <img src="assets/blockscreen.png" alt="Blocked distraction screen" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row reveal">
+            <div class="feature-copy">
+              <span>Settings</span>
+              <h3>Control the system without clutter.</h3>
+              <p>
+                Configure focus defaults, supported sites, blocked domains, themes, reminders and
+                sound behavior in a tidy command center.
+              </p>
+            </div>
+            <figure class="feature-media">
+              <img src="assets/settings.png" alt="Settings and blocked sites screen" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="feature-row feature-row-reverse reveal">
+            <div class="feature-copy">
+              <span>Popup</span>
+              <h3>Fast actions from the Chrome toolbar.</h3>
+              <p>
+                Start focus, open your current course, log water and jump to settings from a compact
+                extension popup that keeps the routine close.
+              </p>
+            </div>
+            <figure class="feature-media feature-media-compact">
+              <img src="assets/popup.png" alt="Chrome extension popup" loading="lazy" />
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="section why" aria-labelledby="why-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">Why Course Focus Pro</span>
+            <h2 id="why-title">Built for the part of studying nobody sees.</h2>
+          </div>
+          <div class="premium-grid">
+            <article class="premium-card reveal">
+              <span class="card-icon">01</span>
+              <h3>Stay Focused</h3>
+              <p>Protect deep work from social feeds, shorts, games and impulsive tab switching.</p>
+            </article>
+            <article class="premium-card reveal">
+              <span class="card-icon">02</span>
+              <h3>Organize Courses</h3>
+              <p>Keep course links grouped by subject so the next study block starts instantly.</p>
+            </article>
+            <article class="premium-card reveal">
+              <span class="card-icon">03</span>
+              <h3>Measure Progress</h3>
+              <p>See daily time, sessions and consistency without setting up another dashboard.</p>
+            </article>
+            <article class="premium-card reveal">
+              <span class="card-icon">04</span>
+              <h3>Learn Consistently</h3>
+              <p>Small routines, reminders and calm defaults make repeat study easier to sustain.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section comparison" aria-labelledby="comparison-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">Comparison</span>
+            <h2 id="comparison-title">Not just another blocker.</h2>
+            <p>
+              Ordinary blockers stop websites. Course Focus Pro gives students a full return path to
+              the work they meant to do.
+            </p>
+          </div>
+
+          <div class="comparison-grid">
+            <article class="comparison-card reveal">
+              <h3>Ordinary Website Blockers</h3>
+              <ul>
+                <li>Block lists without study context</li>
+                <li>No course library or learning workflow</li>
+                <li>Little visibility into actual study time</li>
+                <li>Harsh interruption screens</li>
+              </ul>
+            </article>
+            <article class="comparison-card comparison-card-featured reveal">
+              <h3>Course Focus Pro</h3>
+              <ul>
+                <li>Blocks distractions during active focus sessions</li>
+                <li>Connects each session to a real course</li>
+                <li>Tracks progress, water and consistency</li>
+                <li>Redirects calmly back to learning</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section built-for" aria-labelledby="built-for-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">Built For</span>
+            <h2 id="built-for-title">Designed around real student pressure.</h2>
+          </div>
+          <div class="audience-grid">
+            <article class="audience-card reveal">
+              <h3>JEE</h3>
+              <p>Protect long concept sessions and problem-solving blocks.</p>
+            </article>
+            <article class="audience-card reveal">
+              <h3>NEET</h3>
+              <p>Keep lectures, revision and practice inside one stable routine.</p>
+            </article>
+            <article class="audience-card reveal">
+              <h3>UPSC</h3>
+              <p>Manage deep reading and lectures without attention leaks.</p>
+            </article>
+            <article class="audience-card reveal">
+              <h3>College Students</h3>
+              <p>Turn scattered class videos into organized weekly progress.</p>
+            </article>
+            <article class="audience-card reveal">
+              <h3>Self Learners</h3>
+              <p>Build discipline around online courses without heavy tooling.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section roadmap" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">Roadmap</span>
+            <h2 id="roadmap-title">A calm beta path to launch.</h2>
+          </div>
+          <div class="roadmap-list">
+            <article class="roadmap-item reveal">
+              <span>Now</span>
+              <h3>Private testing</h3>
+              <p>Refining focus sessions, blocking behavior and the course library with early users.</p>
+            </article>
+            <article class="roadmap-item reveal">
+              <span>Next</span>
+              <h3>Public beta</h3>
+              <p>Opening waitlist access with onboarding, feedback capture and more study profiles.</p>
+            </article>
+            <article class="roadmap-item reveal">
+              <span>Later</span>
+              <h3>Chrome Web Store</h3>
+              <p>Publishing the stable extension with polish, privacy docs and guided setup.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section waitlist" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="container">
+          <div class="waitlist-panel reveal">
+            <div>
+              <span class="section-kicker">Join Waitlist</span>
+              <h2 id="waitlist-title">Be first to try Course Focus Pro.</h2>
+              <p>
+                Get early access when the public beta opens and help shape the final Chrome Web
+                Store release.
+              </p>
+            </div>
+            <form class="waitlist-form" action="mailto:coursefocuspro@gmail.com" method="post" enctype="text/plain">
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+              <button class="button button-primary" type="submit">Join Waitlist</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">FAQ</span>
+            <h2 id="faq-title">Questions before you focus.</h2>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item reveal">
+              <button type="button" aria-expanded="false" aria-controls="faq-answer-1">
+                <span>When is the public beta coming?</span>
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-1">
+                <p>
+                  Public beta is coming soon. Join the waitlist to receive the first rollout updates
+                  and early access instructions.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button type="button" aria-expanded="false" aria-controls="faq-answer-2">
+                <span>Does Course Focus Pro block all websites?</span>
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-2">
+                <p>
+                  It is designed to block configured distractions during focus mode while allowing
+                  learning sites and your chosen courses to remain accessible.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button type="button" aria-expanded="false" aria-controls="faq-answer-3">
+                <span>Is my study data private?</span>
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-3">
+                <p>
+                  The extension is built around local browser storage for courses, settings and
+                  progress. The landing page does not collect analytics by default.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button type="button" aria-expanded="false" aria-controls="faq-answer-4">
+                <span>Will it work with YouTube playlists?</span>
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-4">
+                <p>
+                  Yes. Course links can point to videos, playlists and learning resources you want to
+                  return to during focus sessions.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <a class="brand" href="#top" aria-label="Course Focus Pro home">
+          <img src="assets/logo.png" alt="" width="36" height="36" loading="lazy" />
+          <span>Course Focus Pro</span>
+        </a>
+        <div class="footer-links" aria-label="Footer navigation">
+          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#faq">Privacy Policy</a>
+          <a href="mailto:coursefocuspro@gmail.com">Support</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#waitlist">Chrome Web Store</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
